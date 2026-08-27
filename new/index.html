@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BOY1 — 턴 기반 탈출 퍼즐게임</title>
+<meta name="description" content="폐기된 휴머노이드 보이원의 탈출. 얼굴을 쓰면 인간, 벗으면 기계 — 30층 턴 기반 탈출 퍼즐. iOS.">
+<meta property="og:title" content="BOY1 — 턴 기반 탈출 퍼즐게임">
+<meta property="og:description" content="타워 가장 깊은 어둠에 한대의 로봇이 버려졌다. 인간적 결함을 가진 기계의 운명은?">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css">
+<style>
+:root{
+  --bg:#07090e; --panel:#0d1118; --line:#242b3a;
+  --ink:#dfe8ff; --dim:#7f8aa0; --mint:#cfe8d8;
+  --band:#4d82d8; --red:#e0392e;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:'Galmuri11','Galmuri9',monospace; font-weight:400;
+  line-height:1.85;
+}
+img{max-width:100%; display:block}
+a{color:var(--ink)}
+h1,h2,h3{font-weight:400}
+section{padding:88px 24px}
+.wrap{max-width:720px; margin:0 auto; text-align:center}
+
+/* ── 상단 밴드 — 패키지 라벨 문법 ── */
+.band{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:14px 20px; border-bottom:1px solid var(--line);
+  font-size:12px; letter-spacing:.1em; color:var(--band);
+}
+
+/* ── HERO ── */
+.hero{padding:110px 24px 96px}
+.hero .logo{width:min(320px,72vw); margin:0 auto}
+.hero .tag{
+  margin-top:30px; color:var(--mint);
+  font-size:clamp(15px,4vw,19px); letter-spacing:.14em;
+}
+.hero .copy{margin-top:34px; font-size:clamp(13px,3.4vw,15px)}
+.hero .copy .q{color:var(--dim)}
+.cta{margin-top:48px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+.btn{
+  display:inline-block; padding:15px 30px; font-family:inherit;
+  font-size:13px; letter-spacing:.1em; text-decoration:none;
+  border:1px solid var(--ink); color:var(--ink);
+}
+.btn.soon{border-color:var(--line); color:var(--dim); pointer-events:none}
+.price{margin-top:16px; font-size:12px; color:var(--dim); letter-spacing:.1em}
+
+/* ── 섹션 공통 ── */
+.label{font-size:11px; letter-spacing:.3em; color:var(--band); margin-bottom:14px}
+h2{font-size:clamp(19px,4.6vw,26px); letter-spacing:.06em; margin-bottom:14px}
+.lead{color:var(--dim); font-size:clamp(12px,3.2vw,14px); max-width:560px; margin:0 auto}
+.divider{border:0; border-top:1px solid var(--line); margin:0 auto; max-width:720px}
+
+/* ── 룰 2패널 ── */
+.rule{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:44px; text-align:left}
+.card{background:var(--panel); border:1px solid var(--line); padding:26px 22px}
+.card h3{font-size:15px; letter-spacing:.08em; margin-bottom:12px}
+.card p{font-size:13px; color:var(--dim)}
+.card.on h3{color:var(--ink)}
+.card.off h3{color:var(--dim)}
+.card b{color:var(--ink); font-weight:400}
+.card .face{width:34px; height:34px; margin-bottom:14px; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:15px}
+.card.on .face{background:var(--ink); color:var(--bg)}
+.card.off .face{color:var(--red)}
+
+/* ── 플레이 GIF ── */
+.plays{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:48px}
+.play img{border:1px solid var(--line); width:100%}
+.play figcaption{margin-top:14px; font-size:12px; color:var(--dim); line-height:1.9; text-align:left}
+.play figcaption b{color:var(--ink); font-weight:400}
+
+/* ── 능력 4종 ── */
+.abil{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:44px; text-align:left}
+.abil .card h3 span{color:var(--dim); font-size:11px; letter-spacing:.2em; margin-left:8px}
+.abil .card p{font-size:12.5px}
+.abil .arrow{color:var(--band)}
+
+/* ── 스크린샷 스트립 ── */
+.strip-outer{margin-top:48px; overflow-x:auto; scroll-snap-type:x mandatory;
+  padding-bottom:14px; -webkit-overflow-scrolling:touch}
+.strip{display:flex; gap:14px; width:max-content; margin:0 auto; padding:0 24px}
+.strip img{height:min(470px,60svh); width:auto; border:1px solid var(--line); scroll-snap-align:center}
+
+/* ── 스펙 ── */
+.spec{margin-top:44px; display:flex; flex-wrap:wrap; gap:10px 26px; justify-content:center;
+  font-size:12.5px; color:var(--dim); letter-spacing:.06em}
+.badge{
+  display:inline-block; border:1px solid var(--band); color:var(--band);
+  font-size:11px; letter-spacing:.14em; padding:5px 12px;
+}
+
+/* ── 스토리 ── */
+.story p{max-width:560px; margin:0 auto; font-size:clamp(13px,3.4vw,14px)}
+.story .link{margin-top:26px; font-size:12.5px}
+.story .link a{color:var(--dim)}
+
+/* ── 푸터 ── */
+footer{border-top:1px solid var(--line); padding:44px 24px 60px;
+  text-align:center; font-size:11.5px; color:var(--dim); line-height:2.1}
+footer a{color:var(--dim)}
+
+@media (max-width:560px){
+  .rule,.plays,.abil{grid-template-columns:1fr}
+  section{padding:70px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- 상단 밴드 — 커버 라벨 문법 -->
+<div class="band"><span>Cartridge Error</span><span>인간 전용</span></div>
+
+<!-- ① HERO -->
+<section class="hero">
+  <div class="wrap">
+    <img class="logo" src="../assets/boy1_lettering_white.png" alt="보이원 BOY1">
+    <p class="tag">턴 기반 탈출 퍼즐게임</p>
+    <p class="copy">타워 가장 깊은 어둠에 한대의 로봇이 버려졌다<br>
+    <span class="q">인간적 결함을 가진 기계의 운명은?</span></p>
+    <div class="cta">
+      <!-- 출시 시 href에 App Store 링크 삽입 + .soon 클래스 제거 -->
+      <a class="btn soon" href="#">APP STORE — COMING SOON</a>
+    </div>
+    <p class="price">iOS · $0.99 · 인앱 결제 없음</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ② RULE -->
+<section>
+  <div class="wrap">
+    <p class="label">RULE</p>
+    <h2>얼굴이 곧 규칙이다</h2>
+    <p class="lead">한 칸을 움직이면, 로봇들도 한 턴 움직인다.<br>
+    모든 순찰은 정해진 길을 돈다 — 무작위는 없다.</p>
+    <div class="rule">
+      <div class="card off">
+        <div class="face">▦</div>
+        <h3>FACE OFF = 기계</h3>
+        <p>로봇 무리에 섞여 감시에 <b>보이지 않는다.</b><br>대신 아무것도 할 수 없다.</p>
+      </div>
+      <div class="card on">
+        <div class="face">◉</div>
+        <h3>FACE ON = 인간</h3>
+        <p>유인·정지·돌파 — 인간적 능력이 깨어난다.<br>대신 감시에 <b>드러난다.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ③ 실제 플레이 -->
+<section>
+  <div class="wrap">
+    <p class="label">PLAY</p>
+    <h2>실제 플레이</h2>
+    <p class="lead">아래 장면은 전부 실플레이 화면이다.</p>
+    <div class="plays">
+      <figure class="play">
+        <img src="assets/gif_decoy.gif" alt="유인 플레이 — 콘솔 조작으로 로봇을 유인하고 센서를 통과한다">
+        <figcaption><b>유인.</b> 콘솔에 가짜 오류를 흘리면 로봇이 그걸 고치러 온다.
+        비워진 길로, 얼굴을 벗고 지나간다.</figcaption>
+      </figure>
+      <figure class="play">
+        <img src="assets/gif_break.gif" alt="정지와 돌파 플레이 — 로봇을 멈춰 세우고 균열벽을 부순다">
+        <figcaption><b>정지, 그리고 돌파.</b> 감정 신호로 로봇을 멈춰 세우고, 균열된 벽을 부순다.
+        소음을 들은 로봇이 쫓아온다.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ④ 능력 4종 -->
+<section>
+  <div class="wrap">
+    <p class="label">ABILITY</p>
+    <h2>결함이 곧 열쇠다</h2>
+    <p class="lead">완벽하게 논리적인 시스템의 허점은,<br>인간적 비논리만이 찌를 수 있다.</p>
+    <div class="abil">
+      <div class="card"><h3>망설임<span>IDLE</span></h3><p>멈춰 서면, 대기 중인 정상 유닛으로 보인다.</p></div>
+      <div class="card"><h3>실수<span>DECOY</span></h3><p>오류 데이터 생성 <span class="arrow">→</span> 로봇 유인</p></div>
+      <div class="card"><h3>감정<span>HALT</span></h3><p>감정 신호 방출 <span class="arrow">→</span> 로봇 정지</p></div>
+      <div class="card"><h3>충동<span>BREAK</span></h3><p>압축 충격파 <span class="arrow">→</span> 균열된 벽 파괴</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ⑤ 스크린샷 -->
+<section style="padding-left:0;padding-right:0">
+  <div class="wrap" style="padding:0 24px">
+    <p class="label">FLOORS</p>
+    <h2>30개 층. 전부 손으로 설계했다.</h2>
+    <p class="lead">폐기장부터 시스템 코어까지 — 위로 갈수록 흉내는 통하지 않는다.</p>
+  </div>
+  <div class="strip-outer">
+    <div class="strip">
+      <img src="assets/shot_b4.png" alt="B4 — 기능 구역 잠행">
+      <img src="assets/shot_1f.png" alt="1F — 검사 구역, 유인">
+      <img src="assets/shot_7f.png" alt="7F — 행정 구역, 정지">
+      <img src="assets/shot_15f.png" alt="15F — 연구 구역 잠행">
+      <img src="assets/shot_25f.png" alt="25F — 서버룸">
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="spec">
+      <span class="badge">1 PLAYER</span>
+      <span>세로 한 손 플레이</span><span>완전 오프라인</span><span>광고 없음</span><span>인앱 결제 없음</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ⑥ 만든 사람 -->
+<section class="story">
+  <div class="wrap">
+    <p class="label">MAKER</p>
+    <h2>게임이 되기 전, 그는 피규어였다</h2>
+    <p>보이원은 손으로 빚은 아트 피규어에서 시작됐습니다.
+    피규어를 만들던 사람이 오래 묵혀둔 게임 아이디어를 꺼내,
+    2026년 여름 두 달 동안 AI와 주고받으며 코드·그래픽·사운드를 전부 만들었습니다.
+    이것이 그 첫 게임입니다.</p>
+    <p class="link"><a href="https://www.instagram.com/shinbaeksaek" target="_blank" rel="noopener">제작 기록 → @shinbaeksaek</a></p>
+  </div>
+</section>
+
+<footer>
+  BOY1 © 2026 SHINBAEKSAEK<br>
+  <a href="../privacy.html">개인정보처리방침 / Privacy Policy</a> ·
+  <a href="https://www.instagram.com/shinbaeksaek" target="_blank" rel="noopener">@shinbaeksaek</a> ·
+  <a href="mailto:berserker718@gmail.com">berserker718@gmail.com</a>
+</footer>
+
+</body>
+</html>
