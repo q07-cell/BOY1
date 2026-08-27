@@ -36,7 +36,9 @@ img{max-width:100%; display:block}
 .intro{max-width:600px; margin:0 auto; padding:76px 24px 80px; text-align:center;
   font-size:clamp(13px,3.5vw,14.5px)}
 .intro .sec{font-size:clamp(15px,4vw,17px); letter-spacing:.3em; margin-bottom:44px}
-.faceloop{width:128px; margin:0 auto 38px; image-rendering:pixelated}
+.faceloop{width:min(300px,72vw); margin:0 auto 34px; image-rendering:pixelated;
+  -webkit-mask-image:radial-gradient(ellipse 52% 56% at center, #000 58%, transparent 88%);
+  mask-image:radial-gradient(ellipse 52% 56% at center, #000 58%, transparent 88%)}
 .intro .sub{font-size:clamp(16.5px,4.4vw,21px); font-weight:400; letter-spacing:.02em;
   margin-bottom:26px; line-height:1.7}
 .intro p+p{margin-top:22px}
