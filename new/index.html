@@ -18,26 +18,39 @@ body{
   line-height:1.85;
 }
 img{max-width:100%; display:block}
-.wrap{max-width:520px; margin:0 auto; padding:0 20px; text-align:center}
 
 /* 커버 */
 .cover{padding:34px 20px 0}
 .cover img{width:min(480px,100%); margin:0 auto}
 
-/* CTA */
-.cta{padding:44px 20px 72px; text-align:center}
-.btn{
-  display:inline-block; padding:15px 30px; font-family:inherit;
-  font-size:13px; letter-spacing:.1em; text-decoration:none;
-  border:1px solid var(--line); color:var(--dim); pointer-events:none;
+/* App Store 배지형 버튼 */
+.cta{padding:46px 20px 76px; text-align:center}
+.appbadge{
+  display:inline-flex; align-items:center; gap:14px;
+  background:#000; border:1.5px solid #e8edf5; border-radius:14px;
+  padding:13px 30px 13px 24px; text-decoration:none;
+  font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
 }
-/* 출시 시: href에 App Store 링크, border-color/color를 --ink로, pointer-events 제거 */
+.appbadge svg{width:30px; height:30px; fill:#fff; flex:none}
+.appbadge .txt{text-align:left; line-height:1.25; color:#fff}
+.appbadge .txt small{display:block; font-size:11.5px; letter-spacing:.04em; color:#cfd6e4}
+.appbadge .txt strong{display:block; font-size:24px; font-weight:600; letter-spacing:.01em}
+/* 출시 시: href에 App Store 링크 삽입 + small 문구를 'Download on the'로 교체 */
 
-/* 플레이 움짤 */
+/* 게임 소개 — 헤드 2컷(해금 모달 페이스) + 대구 카피 */
+.intro{max-width:600px; margin:0 auto; padding:0 24px 80px; text-align:center;
+  font-size:clamp(13px,3.5vw,14.5px)}
+.heads{display:flex; gap:26px; justify-content:center; align-items:flex-start; margin-bottom:44px}
+.heads figure{flex:1; max-width:230px}
+.heads img{width:min(104px,26vw); margin:0 auto; image-rendering:pixelated}
+.heads figcaption{margin-top:16px}
+.heads .lbl{display:block; font-size:11px; letter-spacing:.22em; color:var(--dim); margin-bottom:10px}
+.heads .line{display:block; font-size:clamp(12px,3.2vw,13.5px); line-height:1.9}
+.intro p+p{margin-top:22px}
+
+/* 실플레이 움짤 */
 .plays{display:grid; grid-template-columns:1fr 1fr; gap:22px; max-width:720px; margin:0 auto; padding:0 20px 84px}
-.play img{border:1px solid var(--line); width:100%}
-.play figcaption{margin-top:14px; font-size:12px; color:var(--dim); line-height:1.9; text-align:left}
-.play figcaption b{color:var(--ink); font-weight:400}
+.plays img{border:1px solid var(--line); width:100%}
 @media (max-width:560px){ .plays{grid-template-columns:1fr} }
 
 footer{border-top:1px solid var(--line); padding:40px 20px 56px;
@@ -49,19 +62,28 @@ footer a{color:var(--dim)}
 
 <div class="cover"><img src="assets/cover_ko.jpg" alt="BOY1 커버 아트"></div>
 
-<div class="cta"><a class="btn" href="#">APP STORE — COMING SOON</a></div>
+<div class="cta">
+  <a class="appbadge" href="#" aria-disabled="true">
+    <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+    <span class="txt"><small>COMING SOON on the</small><strong>App Store</strong></span>
+  </a>
+</div>
+
+<div class="intro">
+  <div class="heads">
+    <figure><img src="assets/head_off.png" alt="FACE OFF"><figcaption><span class="lbl">FACE OFF</span></figcaption></figure>
+    <figure><img src="assets/head_on.png" alt="FACE ON"><figcaption><span class="lbl">FACE ON</span></figcaption></figure>
+  </div>
+  <p>BOY1은 턴 기반 탈출 퍼즐 게임입니다.</p>
+  <p>얼굴(FACE)을 장착하는 순간 보이원의 다양한 능력이 깨어납니다.
+  시스템에 종속된 로봇들 사이에 기계인 척 섞여 있다가,
+  치명적인 오류를 일으켜 로봇들을 속이세요.
+  발각되지 않고 한 층, 한 층 타워 꼭대기까지 올라가는 것이 목표입니다.</p>
+</div>
 
 <div class="plays">
-  <figure class="play">
-    <img src="assets/gif_decoy.gif" alt="유인 플레이">
-    <figcaption><b>유인.</b> 콘솔에 가짜 오류를 흘리면 로봇이 그걸 고치러 온다.
-    비워진 길로, 얼굴을 벗고 지나간다.</figcaption>
-  </figure>
-  <figure class="play">
-    <img src="assets/gif_break.gif" alt="정지와 돌파 플레이">
-    <figcaption><b>정지, 그리고 돌파.</b> 감정 신호로 로봇을 멈춰 세우고, 균열된 벽을 부순다.
-    소음을 들은 로봇이 쫓아온다.</figcaption>
-  </figure>
+  <img src="assets/gif_decoy.gif" alt="유인 플레이">
+  <img src="assets/gif_break.gif" alt="정지와 돌파 플레이">
 </div>
 
 <footer>
