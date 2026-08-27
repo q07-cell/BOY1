@@ -26,8 +26,8 @@ img{max-width:100%; display:block}
 /* CTA 밴드 — 커버·소개와 구별되는 살짝 밝은 배경 */
 .cta{background:var(--band); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
   padding:52px 20px; text-align:center}
-.cta .soon{font-size:clamp(13px,3.4vw,15px); letter-spacing:.22em; color:var(--ink);
-  margin-bottom:26px; animation:bl 1.6s steps(2,jump-none) infinite}
+.cta .soon{font-size:clamp(13px,3.4vw,15px); letter-spacing:.18em; color:var(--ink);
+  margin-top:24px; animation:bl 1.6s steps(2,jump-none) infinite}
 @keyframes bl{ 50%{opacity:.3} }
 .cta .badge{width:176px; margin:0 auto; opacity:.45; filter:grayscale(.4)}  /* 비활성 뷰 — 출시 시 dim 제거 */
 /* 출시 시: .badge를 <a href="앱스토어 링크">로 감싸기 */
@@ -35,7 +35,6 @@ img{max-width:100%; display:block}
 /* 게임 소개 */
 .intro{max-width:600px; margin:0 auto; padding:76px 24px 80px; text-align:center;
   font-size:clamp(13px,3.5vw,14.5px)}
-.intro .sec{font-size:clamp(15px,4vw,17px); letter-spacing:.3em; margin-bottom:44px}
 .faceloop{width:min(320px,76vw); margin:0 auto 28px; image-rendering:pixelated}
 .intro .sub{font-size:clamp(16.5px,4.4vw,21px); font-weight:400; letter-spacing:.02em;
   margin-bottom:26px; line-height:1.7}
@@ -56,14 +55,13 @@ footer a{color:var(--dim)}
 <div class="cover"><img src="assets/cover_ko.jpg" alt="BOY1 커버 아트"></div>
 
 <div class="cta">
-  <p class="soon">COMING SOON</p>
   <img class="badge" src="assets/appstore_badge.svg" alt="Download on the App Store">
+  <p class="soon">iOS에서 곧 출시</p>
 </div>
 
 <div class="intro">
-  <p class="sec">게임 소개</p>
   <img class="faceloop" src="assets/face_loop.gif" alt="보이원 FACE ON/OFF">
-  <h2 class="sub">BOY1은 턴 기반 탈출 퍼즐 게임입니다</h2>
+  <h2 class="sub">시스템을 파괴하고 탈출하십시오</h2>
   <p>얼굴(FACE)을 장착하는 순간 보이원의 다양한 능력이 깨어납니다.
   시스템에 종속된 로봇들 사이에 기계인 척 섞여 있다가,
   치명적인 오류를 일으켜 로봇들을 속이세요.
