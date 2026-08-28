@@ -60,6 +60,9 @@ img{max-width:100%; display:block}
 .intro .sub{font-size:clamp(20px,5.3vw,25px); font-weight:400; letter-spacing:.02em;
   margin-bottom:26px; line-height:1.7}
 .intro p+p{margin-top:22px}
+/* KO 본문 = 목표 개행 실측 폭(14.5px 기준 497px)+어절 단위 개행 */
+.intro p{max-width:497px; margin-left:auto; margin-right:auto; word-break:keep-all}
+body.en .intro p{max-width:none; word-break:normal}
 
 /* 실플레이 움짤 */
 .plays{display:grid; grid-template-columns:1fr 1fr; gap:22px; max-width:720px; margin:0 auto; padding:0 20px 84px}
