@@ -54,7 +54,7 @@ img{max-width:100%; display:block}
 /* CTA 밴드 */
 .cta{position:relative; z-index:2; border-bottom:1px solid var(--line);
   padding:8px 20px 40px; text-align:center}
-.cta .badge{width:176px; margin:0 auto; opacity:.45; filter:grayscale(.4)}  /* 비활성 뷰 — 출시 시 dim 제거 */  /* 비활성 뷰 — 출시 시 dim 제거 */
+.cta .badge{width:176px; margin:0 auto; filter:brightness(.55) grayscale(.35)}  /* 비활성 뷰 — 출시 시 dim 제거 */  /* 비활성 뷰 — 출시 시 dim 제거 */
 /* 출시 시: .badge를 <a href="앱스토어 링크">로 감싸기 */
 .cta .soon{font-size:clamp(15px,4vw,18px); letter-spacing:.18em; color:var(--ink);
   margin-top:12px; animation:bl 1.6s steps(2,jump-none) infinite}
@@ -84,7 +84,7 @@ body.en .intro p{max-width:none; word-break:normal}
 /* 최하단 CTA — 키 아트 배경+유도 문구+플레이 버튼 */
 .cta2{position:relative; overflow:hidden; padding:150px 28px; text-align:center}
 .cta2-bg{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
-  width:1900px; height:auto; max-width:none; image-rendering:pixelated;
+  width:950px; height:auto; max-width:none; image-rendering:pixelated;
   -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 14%, #000 86%, transparent 100%);
   mask-image:linear-gradient(90deg, transparent 0%, #000 14%, #000 86%, transparent 100%)}
 .cta2::before{content:""; position:absolute; inset:0; z-index:1;
