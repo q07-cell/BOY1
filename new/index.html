@@ -64,7 +64,7 @@ img{max-width:100%; display:block}
 /* CTA 밴드 */
 .cta{position:relative; z-index:2; border-bottom:1px solid var(--line);
   padding:8px 20px 40px; text-align:center}
-.cta .badge{width:176px; margin:0 auto; filter:brightness(.55) grayscale(.35)}  /* 비활성 뷰 — 출시 시 dim 제거 */  /* 비활성 뷰 — 출시 시 dim 제거 */
+.cta .badge{width:176px; margin:0 auto; filter:brightness(.38) grayscale(.4)}  /* 비활성 뷰 — 출시 시 dim 제거 */  /* 비활성 뷰 — 출시 시 dim 제거 */
 /* 출시 시: .badge를 <a href="앱스토어 링크">로 감싸기 */
 .cta .soon{font-size:clamp(15px,4vw,18px); letter-spacing:.18em; color:var(--ink);
   margin-top:12px; animation:bl 1.6s steps(2,jump-none) infinite}
@@ -105,7 +105,7 @@ body.en .cta2-copy{font-size:clamp(25px,6.7vw,32px); line-height:1.25}
 .playbtn{display:inline-block; margin-top:22px; padding:6px 20px; line-height:1;
   background:#17181d; border:3px solid #c9cfdb; box-shadow:inset 0 0 0 3px #050608;
   color:#e8edf5; text-decoration:none; font-size:19px; letter-spacing:.06em;
-  filter:brightness(.55) grayscale(.35); pointer-events:none}  /* 비활성 — 출시 시 filter·pointer-events 제거+href */
+  display:none}  /* 출시 전 비노출 — 출시 시 display 복구+href 연결 */
 body.en .playbtn{font-size:24px}
 /* 출시 전 숨김 시: .playbtn{display:none} / 출시 시 href=App Store 링크 */
 
