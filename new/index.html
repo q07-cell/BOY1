@@ -48,7 +48,15 @@ img{max-width:100%; display:block}
 .hero::after{content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
   background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEElEQVR4nGO4/+I/HwMyAAAtFgLVeDYR9QAAAABJRU5ErkJggg==') repeat,
     repeating-linear-gradient(180deg, rgba(223,232,255,.025) 0 3.6px, rgba(0,0,0,0) 3.6px 7.2px);
-  background-size:7.2px 7.2px, auto; image-rendering:pixelated}
+  background-size:7.2px 7.2px, auto; image-rendering:pixelated;
+  animation:scanjit .55s steps(1,end) infinite}
+@keyframes scanjit{
+  0%{background-position:0 0, 0 0}
+  18%{background-position:0 0, 0 2.4px}
+  36%{background-position:0 0, 0 1.2px}
+  55%{background-position:0 0, 0 4.8px}
+  76%{background-position:0 0, 0 3.6px}
+  100%{background-position:0 0, 0 7.2px}}
 .cover{padding:64px 20px 14px}
 .cover img.art{position:relative; z-index:2; max-width:min(440px,92%); max-height:75svh; width:auto; margin:0 auto;
   border:1px solid #3a4152}
