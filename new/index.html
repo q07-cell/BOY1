@@ -41,8 +41,10 @@ img{max-width:100%; display:block}
 .langsw #le{font-size:14px}
 
 /* 커버 */
-.cover{padding:64px 20px 14px}
-.cover img{max-width:min(440px,92%); max-height:75svh; width:auto; margin:0 auto;
+.cover{position:relative; overflow:hidden; padding:64px 20px 14px}
+.nzbg{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:0;
+  width:max(1400px,120%); height:auto; max-width:none; image-rendering:pixelated; opacity:.8}
+.cover img.art{position:relative; z-index:1; max-width:min(440px,92%); max-height:75svh; width:auto; margin:0 auto;
   border:1px solid #3a4152}
 
 /* CTA 밴드 */
@@ -73,20 +75,19 @@ body.en .intro p{max-width:none; word-break:normal}
 .plays img{border:1px solid var(--line); width:100%}
 @media (max-width:560px){ .plays{grid-template-columns:1fr} }
 /* 가로(랜드스케이프) 뷰 — svh 캡 해제, 실플레이 스크린처럼 폭 기준 크게 */
-@media (orientation:landscape){ .cover img{max-height:none} }
+@media (orientation:landscape){ .cover img.art{max-height:none} }
 
 /* 최하단 CTA — 키 아트 배경+유도 문구+플레이 버튼 */
-.cta2{position:relative; padding:150px 28px; text-align:center;
-  background:url('assets/cover_ko2.jpg') center 24%/cover no-repeat}
-.cta2::before{content:""; position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(7,9,14,.96) 0%, rgba(7,9,14,.78) 45%, rgba(7,9,14,.96) 100%)}
-.cta2-in{position:relative; max-width:560px; margin:0 auto}
-.cta2-copy{font-size:clamp(17px,4.5vw,21px); line-height:1.85; word-break:keep-all}
-body.en .cta2-copy{font-size:clamp(20px,5.4vw,26px); line-height:1.5}
-.playbtn{display:inline-block; margin-top:40px; padding:17px 46px;
-  background:var(--ink); color:#0a0c11; text-decoration:none;
-  font-size:15px; letter-spacing:.12em}
-body.en .playbtn{font-size:17px}
+.cta2{position:relative; overflow:hidden; padding:150px 28px; text-align:center}
+.cta2-bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; image-rendering:pixelated}
+.cta2::before{content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, rgba(7,9,14,.92) 0%, rgba(7,9,14,.45) 46%, rgba(7,9,14,.92) 100%)}
+.cta2-in{position:relative; z-index:2; max-width:560px; margin:0 auto}
+.cta2-copy{font-size:clamp(20px,5.3vw,25px); font-weight:400; line-height:1.7; word-break:keep-all}
+body.en .cta2-copy{font-size:clamp(25px,6.7vw,32px); line-height:1.25}
+.playbtn{display:inline-block; margin-top:44px; padding:15px 58px;
+  background:#17181d; border:3px solid #c9cfdb; box-shadow:inset 0 0 0 3px #050608;
+  color:#e8edf5; text-decoration:none; font-size:17px; letter-spacing:.18em}
 /* 출시 전 숨김 시: .playbtn{display:none} / 출시 시 href=App Store 링크 */
 
 footer{border-top:1px solid var(--line); padding:40px 20px 56px;
@@ -98,7 +99,7 @@ footer a{color:var(--dim)}
 
 <div class="langsw"><span id="lk">한글</span> / <span id="le" class="on">ENG</span></div>
 
-<div class="cover"><img src="assets/cover_ko2.jpg" alt="BOY1 cover art"></div>
+<div class="cover"><img class="nzbg" src="assets/nz.gif" alt=""><img class="art" src="assets/cover_ko2.jpg" alt="BOY1 cover art"></div>
 
 <div class="cta">
   <img class="badge" src="assets/appstore_badge.svg" alt="Download on the App Store">
@@ -143,9 +144,10 @@ thirty floors of surveillance.</p>
 </div>
 
 <div class="cta2">
+  <img class="cta2-bg" src="assets/pov_door.png" alt="">
   <div class="cta2-in">
-    <p class="cta2-copy" data-en="Break the system that caged you. Wake the human inside. It's time to escape with BOY1." data-ko="숨 막히는 시스템을 부수고, 당신 안의 인간을 깨우세요. 이제 보이원과 함께 탈출할 시간입니다.">Break the system that caged you. Wake the human inside. It's time to escape with BOY1.</p>
-    <a class="playbtn" href="#" data-en="PLAY NOW" data-ko="지금 플레이">PLAY NOW</a>
+    <h2 class="cta2-copy" data-en="It's time to escape" data-ko="이제 탈출할 시간입니다">It's time to escape</h2>
+    <a class="playbtn" href="#">ESC</a>
   </div>
 </div>
 
