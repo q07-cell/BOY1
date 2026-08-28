@@ -40,7 +40,7 @@ img{max-width:100%; display:block}
 
 /* 커버 */
 .cover{padding:34px 20px 40px}
-.cover img{width:min(480px,100%); margin:0 auto}
+.cover img{width:min(384px,80%); margin:0 auto}
 
 /* CTA 밴드 */
 .cta{background:var(--band); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
@@ -48,13 +48,13 @@ img{max-width:100%; display:block}
 .cta .badge{width:176px; margin:0 auto; opacity:.45; filter:grayscale(.4)}  /* 비활성 뷰 — 출시 시 dim 제거 */
 /* 출시 시: .badge를 <a href="앱스토어 링크">로 감싸기 */
 .cta .soon{font-size:clamp(15px,4vw,18px); letter-spacing:.18em; color:var(--ink);
-  margin-top:24px; animation:bl 1.6s steps(2,jump-none) infinite}
+  margin-top:12px; animation:bl 1.6s steps(2,jump-none) infinite}
 @keyframes bl{ 50%{opacity:.3} }
 
 /* 게임 소개 */
 .intro{max-width:600px; margin:0 auto; padding:76px 24px 80px; text-align:center;
   font-size:clamp(13px,3.5vw,14.5px)}
-.faceloop{width:min(320px,76vw); margin:0 auto 28px; image-rendering:pixelated}
+.faceloop{width:min(320px,76vw); margin:0 auto; image-rendering:pixelated}
 .intro .sub{font-size:clamp(16.5px,4.4vw,21px); font-weight:400; letter-spacing:.02em;
   margin-bottom:26px; line-height:1.7}
 .intro p+p{margin-top:22px}
