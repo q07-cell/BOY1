@@ -65,6 +65,7 @@ img{max-width:100%; display:block}
 body.en .intro p{max-width:none; word-break:normal}
 .intro.feat{padding:56px 48px 96px}
 @media (min-width:560px){ .intro p{white-space:pre-line} }  /* 넓은 화면=지정 개행 그대로(EN=개행 없음이라 무영향) */
+@media (max-width:559px){ .intro .sub{white-space:pre-line} }  /* 모바일 KO 타이틀=지정 2행(EN=개행 없음이라 무영향) */
 
 /* 실플레이 움짤 */
 .plays{display:grid; grid-template-columns:1fr 1fr; gap:22px; max-width:720px; margin:0 auto; padding:0 20px}
@@ -104,7 +105,8 @@ footer a{color:var(--dim)}
 </div>
 
 <div class="intro feat">
-  <h2 class="sub" data-en="Destroy the system and escape" data-ko="시스템을 파괴하고 탈출하십시오">Destroy the system and escape</h2>
+  <h2 class="sub" data-en="Destroy the system and escape" data-ko="시스템을 파괴하고
+탈출하십시오">Destroy the system and escape</h2>
   <p data-en="Every move is one tile, one turn.
 When you step, every robot steps
 along fixed patrol routes. Read the patrols,
