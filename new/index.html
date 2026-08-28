@@ -63,6 +63,7 @@ img{max-width:100%; display:block}
 /* KO 본문 = 목표 개행 실측 폭(14.5px 기준 497px)+어절 단위 개행 */
 .intro p{max-width:497px; margin-left:auto; margin-right:auto; word-break:keep-all}
 body.en .intro p{max-width:none; word-break:normal}
+@media (min-width:560px){ .intro p{white-space:pre-line} }  /* 넓은 화면=지정 개행 그대로(EN=개행 없음이라 무영향) */
 
 /* 실플레이 움짤 */
 .plays{display:grid; grid-template-columns:1fr 1fr; gap:22px; max-width:720px; margin:0 auto; padding:0 20px 84px}
@@ -90,7 +91,10 @@ footer a{color:var(--dim)}
 <div class="intro">
   <img class="faceloop" src="assets/face_loop.gif" alt="BOY1 FACE ON/OFF">
   <h2 class="sub" data-en="Destroy the system and escape" data-ko="시스템을 파괴하고 탈출하십시오">Destroy the system and escape</h2>
-  <p data-en="The moment you put on your FACE, BOY1's abilities awaken. Blend in with the robots bound to the system, then trigger fatal errors to fool them. Climb the tower floor by floor to the very top — without being detected." data-ko="얼굴(FACE)을 장착하는 순간 보이원의 다양한 능력이 깨어납니다. 시스템에 종속된 로봇들 사이에 기계인 척 섞여 있다가, 치명적인 오류를 일으켜 로봇들을 속이세요. 발각되지 않고 한 층, 한 층 타워 꼭대기까지 올라가는 것이 목표입니다.">The moment you put on your FACE, BOY1's abilities awaken. Blend in with the robots bound to the system, then trigger fatal errors to fool them. Climb the tower floor by floor to the very top — without being detected.</p>
+  <p data-en="The moment you put on your FACE, BOY1's abilities awaken. Blend in with the robots bound to the system, then trigger fatal errors to fool them. Climb the tower floor by floor to the very top — without being detected." data-ko="얼굴(FACE)을 장착하는 순간 보이원의 다양한 능력이 깨어납니다.
+시스템에 종속된 로봇들 사이에 기계인 척 섞여 있다가, 치명적인 오류를
+일으켜 로봇들을 속이세요. 발각되지 않고 한 층, 한 층 타워
+꼭대기까지 올라가는 것이 목표입니다.">The moment you put on your FACE, BOY1's abilities awaken. Blend in with the robots bound to the system, then trigger fatal errors to fool them. Climb the tower floor by floor to the very top — without being detected.</p>
 </div>
 
 <div class="plays">
