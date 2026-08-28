@@ -11,19 +11,19 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css">
 <style>
 @font-face{
-  font-family:'Press Start 2P';
-  src:url('assets/PressStart2P-Regular.ttf') format('truetype');
+  font-family:'DungGeunMo';
+  src:url('../assets/DungGeunMo.woff2') format('woff2'),
+      url('../assets/DungGeunMo.woff') format('woff');
   font-display:swap;
 }
 :root{ --bg:#07090e; --band:#0d1117; --line:#242b3a; --ink:#dfe8ff; --dim:#7f8aa0; }
 *{margin:0;padding:0;box-sizing:border-box}
 body{
   background:var(--bg); color:var(--ink);
-  font-family:'Galmuri11','Galmuri9',monospace; font-weight:400;
+  font-family:'DungGeunMo','Galmuri11','Galmuri9',monospace; font-weight:400;
   line-height:1.85;
 }
-/* EN 모드 = Press Start 2P 우선(한글 글리프 없음 → 갈무리 폴백), KO 모드 = 갈무리(라틴 포함) */
-body.en{font-family:'Press Start 2P','Galmuri11','Galmuri9',monospace}
+/* 영한 공통 = DungGeunMo 단일 폰트(2026-08-28) */
 img{max-width:100%; display:block}
 
 /* 언어 토글 — 상단 우측 */
@@ -43,17 +43,14 @@ img{max-width:100%; display:block}
 /* 출시 시: .badge를 <a href="앱스토어 링크">로 감싸기 */
 .cta .soon{font-size:clamp(13px,3.4vw,15px); letter-spacing:.18em; color:var(--ink);
   margin-top:24px; animation:bl 1.6s steps(2,jump-none) infinite}
-body.en .cta .soon{font-size:clamp(10px,2.8vw,12px); letter-spacing:.1em}
 @keyframes bl{ 50%{opacity:.3} }
 
 /* 게임 소개 */
 .intro{max-width:600px; margin:0 auto; padding:76px 24px 80px; text-align:center;
   font-size:clamp(13px,3.5vw,14.5px)}
-body.en .intro{font-size:clamp(10.5px,2.9vw,12px); line-height:2.15; max-width:640px}
 .faceloop{width:min(320px,76vw); margin:0 auto 28px; image-rendering:pixelated}
 .intro .sub{font-size:clamp(16.5px,4.4vw,21px); font-weight:400; letter-spacing:.02em;
   margin-bottom:26px; line-height:1.7}
-body.en .intro .sub{font-size:clamp(13px,3.6vw,17px); line-height:1.9}
 .intro p+p{margin-top:22px}
 
 /* 실플레이 움짤 */
@@ -63,7 +60,6 @@ body.en .intro .sub{font-size:clamp(13px,3.6vw,17px); line-height:1.9}
 
 footer{border-top:1px solid var(--line); padding:40px 20px 56px;
   text-align:center; font-size:11.5px; color:var(--dim); line-height:2.1}
-body.en footer{font-size:9px; line-height:2.5}
 footer a{color:var(--dim)}
 </style>
 </head>
