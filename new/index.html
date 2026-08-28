@@ -43,10 +43,11 @@ img{max-width:100%; display:block}
 /* 커버 */
 .hero{position:relative; overflow:hidden}
 .nzbg{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:0;
-  width:max(1400px,120%); height:auto; max-width:none; image-rendering:pixelated}
+  width:max(1400px,120%); height:auto; max-width:none; image-rendering:pixelated;
+  filter:blur(3px); opacity:.75}
 .hero::after{content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
   background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEElEQVR4nGO4/+I/HwMyAAAtFgLVeDYR9QAAAABJRU5ErkJggg==') repeat,
-    repeating-linear-gradient(180deg, rgba(0,0,0,0) 0 6px, rgba(0,0,0,.13) 6px 12px);
+    repeating-linear-gradient(180deg, rgba(223,232,255,.05) 0 6px, rgba(0,0,0,0) 6px 12px);
   background-size:12px 12px, auto; image-rendering:pixelated}
 .cover{padding:64px 20px 14px}
 .cover img.art{position:relative; z-index:2; max-width:min(440px,92%); max-height:75svh; width:auto; margin:0 auto;
