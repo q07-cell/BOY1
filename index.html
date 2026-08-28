@@ -42,9 +42,9 @@ img{max-width:100%; display:block}
 
 /* 커버 */
 .hero{position:relative; overflow:hidden}
-.nzbg{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:0;
-  width:max(840px,120%); height:auto; max-width:none; image-rendering:pixelated;
-  filter:blur(2px) brightness(0.9); opacity:.8}
+.nzbg{position:absolute; inset:0; z-index:0;
+  background:url('assets/nz7.gif') repeat; background-size:1104px auto;
+  image-rendering:pixelated; filter:blur(2px) brightness(0.9); opacity:.8}
 .hero::after{content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
   background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEElEQVR4nGO4/+I/HwMyAAAtFgLVeDYR9QAAAABJRU5ErkJggg==') repeat,
     repeating-linear-gradient(180deg, rgba(223,232,255,.025) 0 3.6px, rgba(0,0,0,0) 3.6px 7.2px);
@@ -121,7 +121,7 @@ footer a{color:var(--dim)}
 <div class="langsw"><span id="lk">한글</span> / <span id="le" class="on">ENG</span></div>
 
 <div class="hero">
-<img class="nzbg" src="assets/nz7.gif" alt="">
+<div class="nzbg"></div>
 <div class="cover"><img class="art art-ko" src="assets/cover_ko2.jpg" alt="BOY1 cover art"><img class="art art-en" src="assets/cover_en.jpg" alt="BOY1 cover art"></div>
 
 <div class="cta">
