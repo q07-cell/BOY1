@@ -26,7 +26,7 @@ body{
 /* 영한 공통 = DungGeunMo 단일 폰트(2026-08-28). EN=라틴 글리프가 컴팩트해 사이즈 업(PS2P 체감 크기 매칭) */
 body.en{line-height:1.3}
 body.en .cta .soon{font-size:clamp(16px,4.2vw,19px)}
-body.en .intro{font-size:clamp(16px,4.4vw,19px)}
+body.en .intro{font-size:clamp(16px,4.4vw,19px); max-width:560px}
 body.en .intro .sub{font-size:clamp(21px,5.6vw,27px); line-height:1.25}
 body.en footer{font-size:14px; line-height:1.6}
 img{max-width:100%; display:block}
@@ -54,7 +54,7 @@ img{max-width:100%; display:block}
 @keyframes bl{ 50%{opacity:.3} }
 
 /* 게임 소개 */
-.intro{max-width:600px; margin:0 auto; padding:76px 24px 80px; text-align:center;
+.intro{max-width:560px; margin:0 auto; padding:76px 48px 80px; text-align:center;
   font-size:clamp(13px,3.5vw,14.5px)}
 .faceloop{width:min(320px,76vw); margin:0 auto; image-rendering:pixelated}
 .intro .sub{font-size:clamp(16.5px,4.4vw,21px); font-weight:400; letter-spacing:.02em;
