@@ -45,8 +45,9 @@ img{max-width:100%; display:block}
 .nzbg{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:0;
   width:max(1400px,120%); height:auto; max-width:none; image-rendering:pixelated}
 .hero::after{content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
-  background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEElEQVR4nGO4/+I/HwMyAAAtFgLVeDYR9QAAAABJRU5ErkJggg==') repeat;
-  background-size:12px 12px; image-rendering:pixelated}
+  background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEElEQVR4nGO4/+I/HwMyAAAtFgLVeDYR9QAAAABJRU5ErkJggg==') repeat,
+    repeating-linear-gradient(180deg, rgba(0,0,0,0) 0 6px, rgba(0,0,0,.13) 6px 12px);
+  background-size:12px 12px, auto; image-rendering:pixelated}
 .cover{padding:64px 20px 14px}
 .cover img.art{position:relative; z-index:2; max-width:min(440px,92%); max-height:75svh; width:auto; margin:0 auto;
   border:1px solid #3a4152}
