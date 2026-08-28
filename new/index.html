@@ -58,6 +58,8 @@ img{max-width:100%; display:block}
   76%{background-position:0 0, 0 3.6px}
   100%{background-position:0 0, 0 7.2px}}
 .cover{padding:64px 20px 14px}
+body.en .art-ko{display:none}
+body:not(.en) .art-en{display:none}
 .cover img.art{position:relative; z-index:2; max-width:min(440px,92%); max-height:75svh; width:auto; margin:0 auto;
   border:1px solid #3a4152}
 
@@ -120,7 +122,7 @@ footer a{color:var(--dim)}
 
 <div class="hero">
 <img class="nzbg" src="assets/nz7.gif" alt="">
-<div class="cover"><img class="art" src="assets/cover_ko2.jpg" alt="BOY1 cover art"></div>
+<div class="cover"><img class="art art-ko" src="assets/cover_ko2.jpg" alt="BOY1 cover art"><img class="art art-en" src="assets/cover_en.jpg" alt="BOY1 cover art"></div>
 
 <div class="cta">
   <img class="badge" src="assets/appstore_badge.svg" alt="Download on the App Store">
