@@ -54,7 +54,7 @@ img{max-width:100%; display:block}
 @keyframes bl{ 50%{opacity:.3} }
 
 /* 게임 소개 */
-.intro{max-width:600px; margin:0 auto; padding:76px 48px 80px; text-align:center;
+.intro{max-width:600px; margin:0 auto; padding:76px 48px 118px; text-align:center;
   font-size:clamp(13px,3.5vw,14.5px)}
 .faceloop{width:min(320px,76vw); margin:0 auto; image-rendering:pixelated}
 .intro .sub{font-size:clamp(20px,5.3vw,25px); font-weight:400; letter-spacing:.02em;
@@ -63,10 +63,11 @@ img{max-width:100%; display:block}
 /* KO 본문 = 목표 개행 실측 폭(14.5px 기준 497px)+어절 단위 개행 */
 .intro p{max-width:497px; margin-left:auto; margin-right:auto; word-break:keep-all}
 body.en .intro p{max-width:none; word-break:normal}
+.intro.feat{padding:28px 48px 96px}
 @media (min-width:560px){ .intro p{white-space:pre-line} }  /* 넓은 화면=지정 개행 그대로(EN=개행 없음이라 무영향) */
 
 /* 실플레이 움짤 */
-.plays{display:grid; grid-template-columns:1fr 1fr; gap:22px; max-width:720px; margin:0 auto; padding:0 20px 84px}
+.plays{display:grid; grid-template-columns:1fr 1fr; gap:22px; max-width:720px; margin:0 auto; padding:0 20px}
 .plays img{border:1px solid var(--line); width:100%}
 @media (max-width:560px){ .plays{grid-template-columns:1fr} }
 /* 가로(랜드스케이프) 뷰 — svh 캡 해제, 실플레이 스크린처럼 폭 기준 크게 */
@@ -102,7 +103,7 @@ footer a{color:var(--dim)}
   <img src="assets/gif_break2.gif" alt="Halt and break gameplay">
 </div>
 
-<div class="intro">
+<div class="intro feat">
   <h2 class="sub" data-en="Destroy the system and escape" data-ko="시스템을 파괴하고 탈출하십시오">Destroy the system and escape</h2>
   <p data-en="Every move is one tile, one turn. When you step, every robot steps — along fixed patrol routes. Nothing is random: read the patterns, and choose when to wear your FACE and when to take it off. Lure, halt, break through — combine the abilities that awaken floor by floor, and slip past thirty floors of surveillance." data-ko="모든 이동은 한 칸, 한 턴. 내가 움직이면 로봇들도 정해진 경로를 따라 한 턴 움직입니다. 무작위는 없습니다 — 순찰의 패턴을 읽고, 얼굴을 벗을 때와 쓸 때를 고르는 것이 생존의 전부입니다. 유인, 정지, 돌파. 층마다 깨어나는 능력을 조합해 30개 층의 감시망을 뚫으세요.">Every move is one tile, one turn. When you step, every robot steps — along fixed patrol routes. Nothing is random: read the patterns, and choose when to wear your FACE and when to take it off. Lure, halt, break through — combine the abilities that awaken floor by floor, and slip past thirty floors of surveillance.</p>
 </div>
