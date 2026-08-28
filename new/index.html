@@ -23,7 +23,11 @@ body{
   font-family:'DungGeunMo','Galmuri11','Galmuri9',monospace; font-weight:400;
   line-height:1.85;
 }
-/* 영한 공통 = DungGeunMo 단일 폰트(2026-08-28) */
+/* 영한 공통 = DungGeunMo 단일 폰트(2026-08-28). EN=라틴 글리프가 컴팩트해 사이즈 업(PS2P 체감 크기 매칭) */
+body.en .cta .soon{font-size:clamp(16px,4.2vw,19px)}
+body.en .intro{font-size:clamp(16px,4.4vw,19px)}
+body.en .intro .sub{font-size:clamp(21px,5.6vw,27px)}
+body.en footer{font-size:14px}
 img{max-width:100%; display:block}
 
 /* 언어 토글 — 상단 우측 */
