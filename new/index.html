@@ -54,7 +54,7 @@ img{max-width:100%; display:block}
 /* CTA 밴드 */
 .cta{position:relative; z-index:2; border-bottom:1px solid var(--line);
   padding:8px 20px 40px; text-align:center}
-.cta .badge{width:176px; margin:0 auto; opacity:.45; filter:grayscale(.4)}  /* 비활성 뷰 — 출시 시 dim 제거 */
+.cta .badge{width:176px; margin:0 auto; opacity:.45; filter:grayscale(.4); image-rendering:pixelated}  /* 비활성 뷰 — 출시 시 dim 제거 */
 /* 출시 시: .badge를 <a href="앱스토어 링크">로 감싸기 */
 .cta .soon{font-size:clamp(15px,4vw,18px); letter-spacing:.18em; color:var(--ink);
   margin-top:12px; animation:bl 1.6s steps(2,jump-none) infinite}
@@ -108,7 +108,7 @@ footer a{color:var(--dim)}
 <div class="cover"><img class="art" src="assets/cover_ko2.jpg" alt="BOY1 cover art"></div>
 
 <div class="cta">
-  <img class="badge" src="assets/appstore_badge.svg" alt="Download on the App Store">
+  <img class="badge" src="assets/appstore_badge_px2.png" alt="Download on the App Store">
   <p class="soon" data-en="COMING SOON ON iOS" data-ko="iOS에서 곧 출시">COMING SOON ON iOS</p>
 </div>
 </div>
