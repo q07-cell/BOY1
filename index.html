@@ -74,8 +74,8 @@ body:not(.en) .badge-en{display:none}
 /* CTA 밴드 */
 .cta{position:relative; z-index:2; border-bottom:1px solid var(--line);
   padding:8px 20px 40px; text-align:center}
-.cta .badge{width:176px; margin:0 auto; filter:brightness(.38) grayscale(.4)}  /* 비활성 뷰 — 출시 시 dim 제거 */  /* 비활성 뷰 — 출시 시 dim 제거 */
-/* 출시 시: .badge를 <a href="앱스토어 링크">로 감싸기 */
+.cta .badge{width:176px; margin:0 auto}
+.cta a{display:inline-block}
 .cta .soon{font-size:clamp(15px,4vw,18px); letter-spacing:.18em; color:var(--ink);
   margin-top:12px; animation:bl 1.6s steps(2,jump-none) infinite}
 @keyframes bl{ 50%{opacity:.3} }
@@ -114,10 +114,8 @@ body.en .intro p{max-width:none; word-break:normal}
 body.en .cta2-copy{font-size:clamp(25px,6.7vw,32px); line-height:1.25}
 .playbtn{display:inline-block; margin-top:22px; padding:6px 20px; line-height:1;
   background:#17181d; border:3px solid #c9cfdb; box-shadow:inset 0 0 0 3px #050608;
-  color:#e8edf5; text-decoration:none; font-size:19px; letter-spacing:.06em;
-  display:none}  /* 출시 전 비노출 — 출시 시 display 복구+href 연결 */
+  color:#e8edf5; text-decoration:none; font-size:19px; letter-spacing:.06em}
 body.en .playbtn{font-size:24px}
-/* 출시 전 숨김 시: .playbtn{display:none} / 출시 시 href=App Store 링크 */
 
 footer{border-top:1px solid var(--line); padding:40px 20px 56px;
   text-align:center; font-size:11.5px; color:var(--dim); line-height:2.1}
@@ -133,8 +131,8 @@ footer a{color:var(--dim)}
 <div class="cover"><img class="art art-ko" src="assets/cover_ko2.jpg" alt="BOY1 cover art"><img class="art art-en" src="assets/cover_en.jpg" alt="BOY1 cover art"></div>
 
 <div class="cta">
-  <img class="badge badge-en" src="assets/appstore_badge.svg" alt="Download on the App Store"><img class="badge badge-ko" src="assets/appstore_badge_kr.svg" alt="App Store에서 다운로드">
-  <p class="soon" data-en="COMING SEPTEMBER ON iOS" data-ko="iOS에서 9월 출시">COMING SEPTEMBER ON iOS</p>
+  <a class="badge-en" href="https://apps.apple.com/app/boy1/id6797565298" target="_blank" rel="noopener"><img class="badge" src="assets/appstore_badge.svg" alt="Download on the App Store"></a><a class="badge-ko" href="https://apps.apple.com/app/boy1/id6797565298" target="_blank" rel="noopener"><img class="badge" src="assets/appstore_badge_kr.svg" alt="App Store에서 다운로드"></a>
+  <p class="soon" data-en="OUT NOW ON iOS" data-ko="iOS 정식 출시">OUT NOW ON iOS</p>
 </div>
 </div>
 
@@ -178,10 +176,8 @@ thirty floors of surveillance.</p>
 <div class="cta2">
   <img class="cta2-bg" src="assets/cta_door3.png" alt="">
   <div class="cta2-in">
-    <h2 class="cta2-copy" data-en="Coming to iOS
-This September" data-ko="iOS에서 9월 출시">Coming to iOS
-This September</h2>
-    <a class="playbtn" href="#" data-en="ESC" data-ko="탈출">ESC</a>
+    <h2 class="cta2-copy" data-en="It's time to escape" data-ko="이제 탈출할 시간입니다">It's time to escape</h2>
+    <a class="playbtn" href="https://apps.apple.com/app/boy1/id6797565298" target="_blank" rel="noopener" data-en="ESC" data-ko="탈출">ESC</a>
   </div>
 </div>
 
