@@ -189,20 +189,29 @@ thirty floors of surveillance.</p>
 </footer>
 
 <script>
-// 언어 토글 — 기본 EN, 선택은 localStorage 유지. 사이트 이름·아트웍은 언어 무관 고정.
-function setLang(l){
+// 언어 토글 — 기본값은 브라우저 언어(한국어면 KO, 그 외 EN). 손으로 고른 값만 localStorage에 저장해 다음 방문에 유지.
+// 사이트 이름·아트웍은 언어 무관 고정.
+var TITLES = {en: 'BOY1 — Turn Based Escape Puzzle Game', ko: 'BOY1 — 턴 기반 잠입 탈출 퍼즐 게임'};
+function setLang(l, persist){
   document.body.classList.toggle('en', l === 'en');
   document.documentElement.lang = l;
+  document.title = TITLES[l];
   document.querySelectorAll('[data-en]').forEach(function(e){ e.textContent = e.dataset[l]; });
   document.getElementById('lk').classList.toggle('on', l === 'ko');
   document.getElementById('le').classList.toggle('on', l === 'en');
-  try{ localStorage.setItem('boy1_lang', l); }catch(err){}
+  if(persist){ try{ localStorage.setItem('boy1_lang', l); }catch(err){} }
 }
-document.getElementById('lk').addEventListener('click', function(){ setLang('ko'); });
-document.getElementById('le').addEventListener('click', function(){ setLang('en'); });
-var _l = 'en';
-try{ _l = localStorage.getItem('boy1_lang') || 'en'; }catch(err){}
-setLang(_l);
+function detectLang(){
+  var saved = null;
+  try{ saved = localStorage.getItem('boy1_lang'); }catch(err){}
+  if(saved === 'ko' || saved === 'en') return saved;
+  var langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || 'en'];
+  for(var i = 0; i < langs.length; i++){ if(String(langs[i]).toLowerCase().indexOf('ko') === 0) return 'ko'; }
+  return 'en';
+}
+document.getElementById('lk').addEventListener('click', function(){ setLang('ko', true); });
+document.getElementById('le').addEventListener('click', function(){ setLang('en', true); });
+setLang(detectLang(), false);
 </script>
 </body>
 </html>
