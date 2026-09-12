@@ -192,6 +192,8 @@ thirty floors of surveillance.</p>
 // 언어 토글 — 기본값은 브라우저 언어(한국어면 KO, 그 외 EN). 손으로 고른 값만 localStorage에 저장해 다음 방문에 유지.
 // 사이트 이름·아트웍은 언어 무관 고정.
 var TITLES = {en: 'BOY1 — Turn Based Escape Puzzle Game', ko: 'BOY1 — 턴 기반 잠입 탈출 퍼즐 게임'};
+// 저장 키 v2 — 구 키 'boy1_lang'은 자동 기본값(EN)까지 저장하던 옛 방식이라 한국어 브라우저도 EN에 묶였음 → 무시하고 지운다.
+var LANG_KEY = 'boy1_lang2';
 function setLang(l, persist){
   document.body.classList.toggle('en', l === 'en');
   document.documentElement.lang = l;
@@ -199,11 +201,11 @@ function setLang(l, persist){
   document.querySelectorAll('[data-en]').forEach(function(e){ e.textContent = e.dataset[l]; });
   document.getElementById('lk').classList.toggle('on', l === 'ko');
   document.getElementById('le').classList.toggle('on', l === 'en');
-  if(persist){ try{ localStorage.setItem('boy1_lang', l); }catch(err){} }
+  if(persist){ try{ localStorage.setItem(LANG_KEY, l); }catch(err){} }
 }
 function detectLang(){
   var saved = null;
-  try{ saved = localStorage.getItem('boy1_lang'); }catch(err){}
+  try{ localStorage.removeItem('boy1_lang'); saved = localStorage.getItem(LANG_KEY); }catch(err){}
   if(saved === 'ko' || saved === 'en') return saved;
   var langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || 'en'];
   for(var i = 0; i < langs.length; i++){ if(String(langs[i]).toLowerCase().indexOf('ko') === 0) return 'ko'; }
